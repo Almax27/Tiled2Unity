@@ -25,7 +25,7 @@ namespace Tiled2Unity
 
         public TmxTile(TmxMap tmxMap, uint globalId, uint localId, string tilesetName, TmxImage tmxImage)
         {
-            this.TmxMap = TmxMap;
+            this.TmxMap = tmxMap;
             this.GlobalId = globalId;
             this.LocalId = localId;
             this.TmxImage = tmxImage;
