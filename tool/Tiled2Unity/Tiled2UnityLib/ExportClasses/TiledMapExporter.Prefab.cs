@@ -282,7 +282,7 @@ namespace Tiled2Unity
                     // Apply z-cooridnate for use with the depth buffer
                     if (Tiled2Unity.Settings.DepthBufferEnabled)
                     {
-                        float depth_z = CalculateFaceDepth(tmxObjectTile.Position.Y, tmxMap.MapSizeInPixels.Height);
+                        float depth_z = CalculateFaceDepth(tmxObjectTile.Position.Y, tmxObjectTile.Tile);
                         xmlObject.SetAttributeValue("z", depth_z);
                     }
 

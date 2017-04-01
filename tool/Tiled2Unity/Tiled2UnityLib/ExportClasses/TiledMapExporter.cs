@@ -165,9 +165,9 @@ namespace Tiled2Unity
             return new PointF(tx, 1.0f - ty);
         }
 
-        public static float CalculateFaceDepth(float position_y, float mapHeight)
+        public static float CalculateFaceDepth(float position_y, TmxTile tile)
         {
-            float z = position_y / mapHeight * -1.0f;
+            float z = (position_y + tile.Offset.Y) / tile.TmxMap.MapSizeInPixels.Height * -1.0f;
             return (z == -0.0f) ? 0 : z;
         }
 
@@ -181,6 +181,10 @@ namespace Tiled2Unity
 
             // How much is our layer offset as a function of tiles?
             float offsetRatio = layer.Offset.Y / layer.TmxMap.TileHeight;
+            if (layer.TmxMap.Orientation == TmxMap.MapOrientation.Isometric)
+            {
+                offsetRatio *= 0.5f;
+            }
             z -= offsetRatio * depthOfOneTile;
 
             return (z == -0.0f) ? 0 : z;

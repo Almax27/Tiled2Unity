@@ -107,7 +107,7 @@ namespace Tiled2Unity
                             float depth_z = 0.0f;
                             if (Tiled2Unity.Settings.DepthBufferEnabled)
                             {
-                                depth_z = CalculateFaceDepth(position.Y + tmxMap.TileHeight, tmxMap.MapSizeInPixels.Height);
+                                depth_z = CalculateFaceDepth(position.Y + tmxMap.TileHeight, tile);
                             }
 
                             FaceVertices faceVertices = new FaceVertices { Vertices = vertices, Depth_z = depth_z };
